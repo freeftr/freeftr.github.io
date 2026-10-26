@@ -5,26 +5,26 @@ const etc: IEtc.Payload = {
 
   list: [
     {
-      title: 'OPIc IH',
-      subTitle: 'ACTFL',
-      startedAt: '2025-03',
-    },
-    {
-      title: 'SQLD',
-      subTitle: '한국데이터산업진흥원',
-      startedAt: '2024-08',
-    },
-    {
       title: '삼성 청년 SW AI 아카데미 자율 프로젝트 우수상',
       subTitle: '유기견 보호소 운영 플랫폼 "행복하개"',
       startedAt: '2025-04',
       endedAt: '2025-05',
     },
     {
+      title: 'OPIc IH',
+      subTitle: 'ACTFL',
+      startedAt: '2025-03',
+    },
+    {
       title: '삼성 청년 SW AI 아카데미 특화 프로젝트 최우수상',
       subTitle: '고령층 고객을 위한 AI 은행원 "동행"',
       startedAt: '2025-02',
       endedAt: '2025-04',
+    },
+    {
+      title: 'SQLD',
+      subTitle: '한국데이터산업진흥원',
+      startedAt: '2024-08',
     },
   ],
 };
