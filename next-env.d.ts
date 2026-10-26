@@ -1,6 +1,30 @@
-/// <reference types="next" />
-/// <reference types="next/image-types/global" />
-import "./.next/types/routes.d.ts";
+// / <reference types="next" />
+// / <reference types="next/types/global" />
+// / <reference types="next-images" />
 
-// NOTE: This file should not be edited
-// see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
+// import { CSSProperties } from 'styled-components';
+
+// declare module '*.module.css' {
+//   const classes: { [key: string]: CSSProperties };
+//   export default classes;
+// }
+
+declare module '*.png' {
+  const value: string;
+  export default value;
+}
+
+declare module '*.jpg' {
+  const value: string;
+  export default value;
+}
+
+declare module '*.ico' {
+  const value: string;
+  export default value;
+}
+
+declare module '*.css' {
+  const value: { [key: string]: string };
+  export default value;
+}

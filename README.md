@@ -1,34 +1,32 @@
 # freeftr.github.io
 
-박종하 이력서 사이트. [colinhemphill/nextjs-resume](https://github.com/colinhemphill/nextjs-resume) 템플릿을 바탕으로 GitHub Pages 에 정적으로 올린다.
+박종하 이력서 사이트. [uyu423/resume-nextjs](https://github.com/uyu423/resume-nextjs) 템플릿(MIT)을 바탕으로 GitHub Pages 에 올린다.
 
 - 사이트: https://freeftr.github.io
-- PDF: https://freeftr.github.io/resume.pdf
 
 ## 내용 고치기
 
-`edit-me/content/` 안의 Markdown 만 고치면 된다.
+`payload/` 안의 파일만 고치면 된다. 섹션 순서는 `pages/index.tsx` 에서 바꾼다.
 
 | 파일 | 내용 |
 |---|---|
-| `personal.md` | 이름, 한 줄 소개, 연락처, Introduction 본문 |
-| `skills/0.md` | Tech Stack |
-| `projects/*.md` | 프로젝트 (제목, 일정, 참여 인원, 서비스, 본문). `order` 가 작을수록 위 |
-| `professional-experiences/*.md` | 회사, 교육 경력 |
+| `payload/profile.ts` | 사진, 이름, 연락처, 한 줄 소개 |
+| `payload/introduce.ts` | Introduce 본문 |
+| `payload/skill.ts` | Tech Stack |
+| `payload/project.ts` | 프로젝트 |
+| `payload/experience.ts` | 경력 |
+| `payload/education.ts` | 교육 |
+| `payload/etc.ts` | 수상 등 기타 |
+| `package.json` 의 `lastestUpdatedAt` | Introduce 아래 "Latest Updated" 날짜 |
 
-`main` 에 푸시하면 GitHub Actions 가 빌드해 배포한다.
+`main` 에 푸시하면 GitHub Actions 가 `npm run export` 로 `docs/` 를 만들어 배포한다. `docs/` 는 커밋하지 않는다.
 
 ## 로컬에서 보기
 
 ```sh
-bun install
-bun run dev        # http://localhost:3000
-bun run build      # contentlayer → public/resume.pdf → out/
+npm install
+npm run dev      # http://localhost:3000
+npm run export   # docs/ 에 정적 HTML 생성
 ```
 
-## 템플릿에서 바꾼 것
-
-- GitHub Pages 용 정적 내보내기(`output: 'export'`). 서버가 필요한 비공개 링크, `/api/pdf` 라우트는 뺐다.
-- PDF 는 빌드 때 `scripts/build-pdf.tsx` 가 같은 react-pdf 컴포넌트로 `public/resume.pdf` 를 만든다.
-- 한글 폰트: 웹은 Noto Sans KR, PDF 는 나눔고딕(`src/fonts/NanumGothic-*.ttf`).
-- Project 섹션 추가, Achievements 와 Additional Info 섹션 제거.
+Node 20 (`.nvmrc`). PDF 는 브라우저 인쇄(Cmd+P)로 뽑는다.

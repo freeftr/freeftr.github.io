@@ -1,44 +1,30 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "incremental": true,
-    "allowImportingTsExtensions": true,
-    "moduleDetection": "force",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "strictNullChecks": true,
-    "paths": {
-      "@config/*": ["./edit-me/config/*"],
-      "@content": ["./.contentlayer/generated"],
-      "@test-utils": ["./src/test-utilities.tsx"],
-      "@icons": ["./src/components/icons/index.ts"],
-      "@src/*": ["./src/*"],
-      "@edit-me/*": ["./edit-me/*"]
-    },
-    "types": ["bun-types"]
+    "target": "es2017",
+    "outDir": "docs"
   },
   "exclude": ["node_modules"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".contentlayer/generated",
-    ".next/dev/types/**/*.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "typedocOptions": {
+    "out": "docs/typedoc",
+    "mode": "file",
+    "name": "Resume Next.js: TypeDoc",
+    "externalPattern": "!**/I*.ts"
+  }
 }

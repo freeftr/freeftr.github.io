@@ -19,18 +19,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
       - name: Install
-        run: bun install --frozen-lockfile
-      - name: Build content
-        run: bun run build:content
-      - name: Type check
-        run: bun run types
-      - name: Build
-        run: bun run build
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Export
+        run: npm run export
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: docs
 
   deploy:
     needs: build
