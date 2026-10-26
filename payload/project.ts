@@ -107,6 +107,32 @@ const project: IProject.Payload = {
         },
       ],
     },
+    {
+      title: '분산 락 개선',
+      startedAt: '2025-06',
+      endedAt: '2025-06',
+      where: '개인 프로젝트',
+      descriptions: [
+        {
+          content: 'Github : https://github.com/freeftr/Distributed_Lock_Toy_Project',
+          href: 'https://github.com/freeftr/Distributed_Lock_Toy_Project',
+        },
+        {
+          content: '서비스 : 다중화된 API 서버에서 계좌 이체의 동시성을 제어하는 함수형 분산 락',
+          weight: 'MEDIUM',
+        },
+        {
+          content:
+            'AOP 분산 락이 불필요한 로직까지 감싸 락 경합이 늘고, 수만 건 동시 요청에서 일부가 간헐적으로 실패했습니다.',
+          descriptions: [
+            {
+              content:
+                '=> 락이 필요한 로직만 함수로 넘겨 락 안에서 실행하는 함수형 분산 락으로 바꿔 k6 부하 테스트 기준 성공률 약 43%, 평균 응답 시간 약 12배 개선했습니다.',
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
